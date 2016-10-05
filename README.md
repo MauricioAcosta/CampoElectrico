@@ -1,0 +1,4 @@
+# CampoElectrico
+Calcular El Campo Electrico en R_2 &amp; R_3
+
+EL OBJETIVO DEL PROGRAMA ES LLEGAR A CALCULAR CAMPOS ELECTRICOS DE N CARGAS EN R^2 Y R^3 
