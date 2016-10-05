@@ -39,11 +39,11 @@ function capturar() {
 
     try {
         var r1 = Math.sqrt(Math.pow(corq1[0] - corp[0], 2) + Math.pow(corq1[1] - corp[1], 2) + Math.pow(corq1[2] - corp[2], 2))
-console.log('r1 '+r1);
+//console.log('r1 '+r1);
         var r2 = Math.sqrt(Math.pow(corq2[0] - corp[0], 2) + Math.pow(corq2[1] - corp[1], 2) + Math.pow(corq2[2] - corp[2], 2))
-console.log('r1 '+r2);
+//console.log('r1 '+r2);
         var r3 = Math.sqrt(Math.pow(corq3[0] - corp[0], 2) + Math.pow(corq3[1] - corp[1], 2) + Math.pow(corq3[2] - corp[2], 2))
-console.log('r1 '+r3);
+//console.log('r1 '+r3);
         vector1 = EvaluarVector(corq1, corp, r1)
         vector2 = EvaluarVector(corq2, corp, r2)
         vector3 = EvaluarVector(corq3, corp, r3)
