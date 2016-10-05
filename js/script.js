@@ -38,16 +38,12 @@ function capturar() {
     corp = [x, y, z]
 
     try {
-
-        if (!validarEntero([q1,q2,q3,corq1,corq2,corq3,corp])) {
-            throw new Error('Algunos campos no son enteros')
-        }
         var r1 = Math.sqrt(Math.pow(corq1[0] - corp[0], 2) + Math.pow(corq1[1] - corp[1], 2) + Math.pow(corq1[2] - corp[2], 2))
-
+console.log('r1 '+r1);
         var r2 = Math.sqrt(Math.pow(corq2[0] - corp[0], 2) + Math.pow(corq2[1] - corp[1], 2) + Math.pow(corq2[2] - corp[2], 2))
-
+console.log('r1 '+r2);
         var r3 = Math.sqrt(Math.pow(corq3[0] - corp[0], 2) + Math.pow(corq3[1] - corp[1], 2) + Math.pow(corq3[2] - corp[2], 2))
-
+console.log('r1 '+r3);
         vector1 = EvaluarVector(corq1, corp, r1)
         vector2 = EvaluarVector(corq2, corp, r2)
         vector3 = EvaluarVector(corq3, corp, r3)
@@ -84,50 +80,25 @@ function capturar() {
 
 
 }
-var es = {
-entero: function(str) {
-        if (str === parseInt(str, 10).toString()) {
-            return true
-        } else {
-            return false
-        }
-    },
-}
-    function validarEntero(parametros) {
-        for (var i = 0; i < parametros.length; i++) {
-            if (typeof(parametros[i]) === "object") {
-                for (var j = 0; j < parametros[i].length; j++) {
-                    if (!es.entero(parametros[i][j])) {
-                        return false
-                    }
-                }
-            } else if (!es.entero(parametros[i])) {
-                return false
-            }
-        }
-        return true
-    }
 
 function EvaluarVector(corq, corp, r) {
     var rvector = new Array
-    rvector[0] = ((corq[0] - corp[0]) / r)
-    rvector[1] = ((corq[1] - corp[1]) / r)
-    rvector[2] = ((corq[2] - corp[2]) / r)
+    rvector[0] = ((corq[0] - corp[0]) / r)*(-1)
+    rvector[1] = ((corq[1] - corp[1]) / r)*(-1)
+    rvector[2] = ((corq[2] - corp[2]) / r)*(-1)
+    console.log('EvaluarVector '+rvector);
     return rvector
 
 }
 
 function EvaluarCampo(q, vector, r) {
-
     var k = 9 * Math.pow(10, 9)
     var campoElectrico = new Array
-    campoElectrico[0] = ((k * q) / r) * vector[0]
-    campoElectrico[1] = ((k * q) / r) * vector[1]
-    campoElectrico[2] = ((k * q) / r) * vector[2]
+    campoElectrico[0] = ((k * q) / Math.pow(r,2)) * vector[0]
+    campoElectrico[1] = ((k * q) / Math.pow(r,2)) * vector[1]
+    campoElectrico[2] = ((k * q) / Math.pow(r,2)) * vector[2]
     console.log('campoElectrico ' + campoElectrico);
     return campoElectrico
-
-
 }
 
 function NormaCampo(i, j, k) {
