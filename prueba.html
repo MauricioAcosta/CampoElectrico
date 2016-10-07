@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>campo Electrico</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+	<div class="center">
+		<h3><b>Campos Electricos</b></h3>
+		<th>
+			<label for="P">CARGA DE PRUEBA</label>
+			<br> Posicion de la carga de prueba P</br>
+			<label for="P">X</label>
+			<input type="text" id="X" />
+			<label for="P">Y</label>
+			<input type="text" id="Y" />
+			<label for="P">Z</label>
+			<input type="text" id="Z" />
+		</th>
+		<br>
+		<p>Ingrese el numero de cargas:</p>
+		<input type="text" id="NumCargas"  />
+		<br>
+		<br>
+		<input type="text" id="R"  />
+		<br>
+		<br>
+		<input type="button" name="coeficientes" id="coeficientes" value="INGRESAR" onclick="armarCondiciones();" />
+		<br>
+		<br>
+		<div align="center">
+			<table id="tablaCoeficientes"></table>
+			<hr class="percent" />
+			<p>Tipo de Coordenadas en metros</p>
+			<table id="Matriz"></table>
+		</div>
+		<p>Cargas en Coulomb:</p>
+		<div align="center">
+			<table id="tablaDeCargas">
+			</table>
+		</div>
+		<br>
+		<input type="button" name="solucion" id="solucion" value="CALCULAR SOLUCION" onclick=" capturar()" />
+		<br>
+		<br>
+		<div id="soluciongen"></div>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+
+</html>
