@@ -1,39 +1,4 @@
 body {
 	text-align: center;
-	background-color:#CCFF99;
-	margin:0 auto;
-}
-.left {
-    float: left;
-    width: 50%;
-}
-
-.right {
-    float: right;
-    width: 50%;
-}
-
-.boton-central {
-    display: block;
-    margin: 0 auto;
-    width: 50%;
-}
-
-.percent {
-    width: 90%;
-}
-
-.formulario {
-    padding: 10px;
-    background-color: #eee;
-    width: 100px;
-}
-
-.panel {}
-
-#container {}
-
-.center {
-    width: auto;
-    margin: 0px auto;
+	background-color:  rgb(113, 177, 181);
 }
