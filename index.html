@@ -1,84 +1,54 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Campo Electrico.</title>
+	<title>campo Electrico</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
 <body>
 	<div class="center">
-		<h2><b>Campo Electrico</b></h2>
-		<br>
-		<table class="center">
-			<label for="medida">valores en Metros</label>
-			<th>
-				<label for="Q1">CARGA 1</label>
-				<input type="text" id="Q1"  min="0" max="18" value="0" />
-				<label for="Q1">X1</label>
-				<input type="text" id="X1"  min="0" max="18" value="0" />
-				<label for="Q1">Y1</label>
-				<input type="text" id="Y1"  min="0" max="18" value="0" />
-				<label for="Q1">Z1</label>
-				<input type="text" id="Z1"  min="0" max="18" value="0" />
-			</th>
-
-		</table>
-
-		<table class="center">
-
-			<th>
-				<label for="Q2">CARGA 2</label>
-				<input type="text" id="Q2"  min="0" max="18" value="0" />
-				<label for="Q2">X2</label>
-				<input type="text" id="X2"  min="0" max="18" value="0" />
-				<label for="Q2">Y2</label>
-				<input type="text" id="Y2"  min="0" max="18" value="0" />
-				<label for="Q2">Z2</label>
-				<input type="text" id="Z2"  min="0" max="18" value="0" />
-			</th>
-		</table>
-		<table class="center">
-			<th>
-				<label for="Q3">CARGA 3</label>
-				<input type="text" id="Q3"  min="0" max="18" value="0" />
-				<label for="Q3">X3</label>
-				<input type="text" id="X3"  min="0" max="18" value="0" />
-				<label for="Q3">Y3</label>
-				<input type="text" id="Y3"  min="0" max="18" value="0" />
-				<label for="Q3">Z3</label>
-				<input type="text" id="Z3"  min="0" max="18" value="0" />
-			</th>
-		</table>
-		<table class="center">
-			<h2> Ingresa la Carga de Prueba</h2>
-			<th>
-				<label for="P">CARGA DE PRUEBA</label>
-				<br>
-				Posicion de la carga de prueba P
-			</br>
-				<label for="P">X</label>
-				<input type="text" id="X"  min="0" max="18" value="0" />
-				<label for="P">Y</label>
-				<input type="text" id="Y"  min="0" max="18" value="0" />
-				<label for="P">Z</label>
-				<input type="text" id="Z"  min="0" max="18" value="0" />
-			</th>
-		</table>
-		<br>
-		<table>
-			<div id=Muestra1></div>
-			<br>
-			<div id=Muestra2></div>
-			<br>
-			<div id=Muestra3></div>
-			<br>
-			<div id=Muestra4></div>
-		</table>
+		<h3><b>Campos Electricos</b></h3>
 		<th>
-			<input type="button" name="Calcular" id="Calcular" value="Calcular" onclick="capturar()">
+			<label for="P">CARGA DE PRUEBA</label>
+			<br> Posicion de la carga de prueba P</br>
+			<label for="P">X</label>
+			<input type="text" id="X" />
+			<label for="P">Y</label>
+			<input type="text" id="Y" />
+			<label for="P">Z</label>
+			<input type="text" id="Z" />
 		</th>
-		<script src="js/script.js"></script>
+		<br>
+		<p>Ingrese el numero de cargas:</p>
+		<input type="text" id="NumCargas"  />
+		<br>
+		<br>
+		<input type="text" id="R"  />
+		<br>
+		<br>
+		<input type="button" name="coeficientes" id="coeficientes" value="INGRESAR" onclick="armarCondiciones();" />
+		<br>
+		<br>
+		<div align="center">
+			<table id="tablaCoeficientes"></table>
+			<hr class="percent" />
+			<p>Tipo de Coordenadas en metros</p>
+			<table id="Matriz"></table>
+		</div>
+		<p>Cargas en Coulomb:</p>
+		<div align="center">
+			<table id="tablaDeCargas">
+			</table>
+		</div>
+		<br>
+		<input type="button" name="solucion" id="solucion" value="CALCULAR SOLUCION" onclick=" capturar()" />
+		<br>
+		<br>
+		<div id="soluciongen"></div>
+	</div>
+	<script src="js/script.js"></script>
 </body>
 
 </html>

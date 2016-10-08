@@ -1,7 +1,6 @@
 var NumCargas = null;
 var R = null;
 var matriz = null;
-
 //Carga de Prueba
 var x = null;
 var y = null;
@@ -17,9 +16,9 @@ function armarCondiciones() {
     yp= document.getElementById('Y').value
     zp = document.getElementById('Z').value
     x=Number(xp);
-    x=Number(yp);
-    x=Number(zp);
-    corp = [x, y, z]
+    y=Number(yp);
+    z=Number(zp);
+    corp = [[x, y, z],[x, y, z],[x, y, z]]
         //Solicita datos (NumCargas)
     var temp = document.getElementById("NumCargas").value;
     NumCargas = Number(temp);
@@ -34,11 +33,9 @@ function armarCondiciones() {
     if (R == 2) {
         window.alert("Recuerde cargas en  Coulomb \n y Cordenadas en Metros")
         dibujarMatriz(matriz)
-        armarTablaValoresIniciales()
     } else if (R == 3) {
         window.alert("Recuerde cargas en  Coulomb \n y Coordenadas en Metros")
         dibujarMatriz(matriz)
-        armarTablaValoresIniciales(NumCargas)
     } else {
         window.alert('Solo se puede para R^2 y R^3')
     }
@@ -49,9 +46,8 @@ function dibujarMatriz(matriz) {
     matriz.innerHTML = "";
     for (i = 0; i < NumCargas; i++) {
         var nuevaFila = matriz.insertRow(-1)
-        for (j = 0; j < R; j++) {
+        for (j = 0; j <=R; j++) {
             var CELDA = nuevaFila.insertCell(-1);
-            //  CELDA += ' Q_' + (j) + ': '
             var input = document.createElement('input')
             input.setAttribute('type', 'text')
             input.setAttribute('data-fila', i)
@@ -60,22 +56,6 @@ function dibujarMatriz(matriz) {
             CELDA.appendChild(input)
         }
     }
-}
-
-function armarTablaValoresIniciales(NumCargas) {
-  //Crea los espacios para los coeficientes
-   var t = document.getElementById("tablaDeCargas");
-   t.innerHTML = ''
-   for (i = 0; i < NumCargas.length; i++) {
-       var f = t.insertRow(-1);
-       var z = f.insertCell(-1);
-       var CELDA = ' Q_' + (i) + ': '
-       CELDA += '<input type="text"'
-       CELDA += 'data-columna="' + i + '" ';
-       CELDA += 'size="3">'
-
-       z.innerHTML = CELDA;
-   }
 }
 
 function capturar() {
@@ -88,6 +68,7 @@ var r = new Array
             j += 2
         }
     }
+
     var vector = new Array
     vector = EvaluarVector(matriz, corp, r)
     campoElectrico = EvaluarCampo(tablaDeCargas, vector, r)
@@ -101,7 +82,7 @@ function EvaluarVector(matriz, corp, r) {
 
       for (var j = 0; j < 3; j++) {
 
-        rvector[i][j]=((matriz[i][j] - corp[i][j]) / r[i][j]) * (-1)
+        rvector[i][j]=((matriz[i][j] - corp[i]) / r[i][j]) * (-1)
         j+=2
       }
   }
