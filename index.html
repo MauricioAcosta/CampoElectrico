@@ -1,52 +1,55 @@
 <!DOCTYPE html>
-<html>
 
 <head>
 	<title>campo Electrico</title>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-</head>
+	<link rel="stylesheet" type="text/css" href="css/style.css" /> </head>
 
 <body>
-	<div class="center">
-		<h3><b>Campos Electricos</b></h3>
-		<th>
-			<label for="P">CARGA DE PRUEBA</label>
-			<br> Posicion de la carga de prueba P</br>
-			<label for="P">X</label>
-			<input type="text" id="X" />
-			<label for="P">Y</label>
-			<input type="text" id="Y" />
-			<label for="P">Z</label>
-			<input type="text" id="Z" />
-		</th>
-		<br>
-		<p>Ingrese el numero de cargas:</p>
-		<input type="text" id="NumCargas"  />
-		<br>
-		<br>
-		<input type="text" id="R"  />
-		<br>
-		<br>
-		<input type="button" name="coeficientes" id="coeficientes" value="INGRESAR" onclick="armarCondiciones();" />
-		<br>
-		<br>
-		<div align="center">
-			<table id="tablaCoeficientes"></table>
-			<hr class="percent" />
-			<p>Tipo de Coordenadas en metros</p>
-			<table id="Matriz"></table>
-		</div>
-		<p>Cargas en Coulomb:</p>
-		<div align="center">
-			<table id="tablaDeCargas">
-			</table>
-		</div>
-		<br>
-		<input type="button" name="solucion" id="solucion" value="CALCULAR SOLUCION" onclick=" capturar()" />
-		<br>
-		<br>
-		<div id="soluciongen"></div>
+
+	<h1>
+		<b>Campos Electricos</b>
+	</h1>
+	<h2>Carga de Prueba</h2>
+	<h3>Posicion de la carga de prueba P</h3>
+	<label for="P">X</label>
+	<input type="text" id="X" />
+	<label for="P">Y</label>
+	<input type="text" id="Y" />
+	<label for="P">Z</label>
+	<input type="text" id="Z" />
+
+
+	<h3>Ingrese el numero de cargas:</h3>
+	<input type="text" id="NumCargas" />
+	<p>Seleccione espacio vectorial a trabajar</p>
+
+	<!-- name el mismo nombre me permite agrupar radioButtons -->
+	<input type="radio" name="rg" id="R1" />
+	<label for="R2">R1</label>
+	<br>
+	<input type="radio" name="rg" id="R2" />
+	<label for="R2">R2</label>
+	<br>
+	<input type="radio" name="rg" id="R3" R3/>
+	<label for="R3">R3</label>
+	<br>
+	<input type="button" id="coeficientes" value="INGRESAR" onclick="armarCondiciones();" />
+	<br>
+
+
+	<table id="tablaCoeficientes"></table>
+	<hr class="percent" />
+	<p>Tipo de Coordenadas en metros</p>
+	<table id="Matriz"></table>
+	</div>
+	<p>Cargas en Coulomb:</p>
+	<div align="center">
+		<table id="tablaDeCargas"></table>
+	</div>
+	<br>
+	<br>
+	<div id="soluciongen"></div>
 	</div>
 	<script src="js/script.js"></script>
 </body>

@@ -1,6 +1,7 @@
 var NumCargas = null;
 var R = null;
 var matriz = null;
+
 //Carga de Prueba
 var x = null;
 var y = null;
@@ -13,41 +14,68 @@ var corp = new Array
 function armarCondiciones() {
 
     xp = document.getElementById('X').value
-    yp= document.getElementById('Y').value
+    yp = document.getElementById('Y').value
     zp = document.getElementById('Z').value
-    x=Number(xp);
-    y=Number(yp);
-    z=Number(zp);
-    corp = [[x, y, z],[x, y, z],[x, y, z]]
+
+    /*Toamdo el datos de caraga de pruebaa*/
+    x = Number(xp);
+    y = Number(yp);
+    z = Number(zp);
+
+    corp = [
+            [x, y, z],
+            [x, y, z],
+            [x, y, z]
+        ]
         //Solicita datos (NumCargas)
+
+
     var temp = document.getElementById("NumCargas").value;
     NumCargas = Number(temp);
+
+    // donde se va a introducir valores
     matriz = document.getElementById('Matriz')
-    var temp2 = document.getElementById("R").value;
-    R = Number(temp2);
+
     //Analiza si se ingreso el NumCargas adecuado
     if (NumCargas === null || NumCargas === 0) {
         alert("Ingrese Orden");
         return;
     }
-    if (R == 2) {
-        window.alert("Recuerde cargas en  Coulomb \n y Cordenadas en Metros")
-        dibujarMatriz(matriz)
-    } else if (R == 3) {
-        window.alert("Recuerde cargas en  Coulomb \n y Coordenadas en Metros")
-        dibujarMatriz(matriz)
+
+
+    if (document.getElementById("R1").checked) {
+        R = 1;
+        window.alert("Recuerde cargas en  Coulomb \n y Cordenadas en Metros");
+        dibujarMatriz(matriz);
+
+    } else if (document.getElementById("R2").checked) {
+        R = 2;
+        window.alert("Recuerde cargas en  Coulomb \n y Cordenadas en Metros");
+        dibujarMatriz(matriz);
+    } else if (document.getElementById("R3").checked) {
+        R = 3;
+        window.alert("Recuerde cargas en  Coulomb \n y Coordenadas en Metros");
+        dibujarMatriz(matriz);
     } else {
-        window.alert('Solo se puede para R^2 y R^3')
+        window.alert('Seleciona el campo a trabajar');
     }
+
+
 
 }
 
+/*Añade elemanrto para r2 0 r3*/
 function dibujarMatriz(matriz) {
+    /*Numero de cargas*/
     matriz.innerHTML = "";
+
+
     for (i = 0; i < NumCargas; i++) {
-        var nuevaFila = matriz.insertRow(-1)
-        for (j = 0; j <=R; j++) {
-            var CELDA = nuevaFila.insertCell(-1);
+        var nuevaFila = matriz.insertRow(0)
+
+        /*Descomposicon vectoriañ*/
+        for (j = 0; j < R; j++) {
+            var CELDA = nuevaFila.insertCell(0);
             var input = document.createElement('input')
             input.setAttribute('type', 'text')
             input.setAttribute('data-fila', i)
@@ -58,9 +86,11 @@ function dibujarMatriz(matriz) {
     }
 }
 
+///////// De aqui para adelante no entiendo ni pite
+
 function capturar() {
-  var tablaDeCargas = document.getElementById("tablaDeCargas")
-var r = new Array
+    var tablaDeCargas = document.getElementById("tablaDeCargas")
+    var r = new Array
     for (var i = 0; i < matriz.length; i++) {
 
         for (var j = 0; j < 3; j++) {
@@ -77,15 +107,15 @@ var r = new Array
 
 function EvaluarVector(matriz, corp, r) {
 
-  var rvector = new Array
-  for (var i = 0; i < matriz.length; i++) {
+    var rvector = new Array
+    for (var i = 0; i < matriz.length; i++) {
 
-      for (var j = 0; j < 3; j++) {
+        for (var j = 0; j < 3; j++) {
 
-        rvector[i][j]=((matriz[i][j] - corp[i]) / r[i][j]) * (-1)
-        j+=2
-      }
-  }
+            rvector[i][j] = ((matriz[i][j] - corp[i]) / r[i][j]) * (-1)
+            j += 2
+        }
+    }
     return rvector
 
 }
@@ -97,8 +127,8 @@ function EvaluarCampo(tablaDeCargas, vector, r) {
 
         for (var j = 0; j < 3; j++) {
 
-          campoElectrico[i][j]=(k*tablaDeCargas[j]/ Math.pow(r[i][j], 2))*vector[i][j]
-          j+=2
+            campoElectrico[i][j] = (k * tablaDeCargas[j] / Math.pow(r[i][j], 2)) * vector[i][j]
+            j += 2
         }
     }
     console.log('campoElectrico ' + campoElectrico);
@@ -109,7 +139,7 @@ function NormaCampo(campoElectrico) {
 
     normaE = Math.sqrt(Math.pow(campoElectrico[0], 2) + Math.pow(campoElectrico[1], 2) + Math.pow(campoElectrico[2], 2))
 
-console.log(normaE);
+    console.log(normaE);
 
     return normaE
 
