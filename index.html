@@ -13,11 +13,11 @@
 	<h2>Carga de Prueba</h2>
 	<h3>Posicion de la carga de prueba P</h3>
 	<label for="P">X</label>
-	<input type="text" id="X" />
+	<input type="number" id="X" />
 	<label for="P">Y</label>
-	<input type="text" id="Y" />
+	<input type="number" id="Y" />
 	<label for="P">Z</label>
-	<input type="text" id="Z" />
+	<input type="number" id="Z" />
 
 
 	<h3>Ingrese el numero de cargas:</h3>
@@ -34,24 +34,24 @@
 	<input type="radio" name="rg" id="R3" R3/>
 	<label for="R3">R3</label>
 	<br>
+<input type="button" id="AddElement" value="Añadir Carga" onclick="aniadirCarga();">
+<input type="button" id="Calcular" value="Calcular" onclick="calcularCampo();">
+
+
 	<input type="button" id="coeficientes" value="INGRESAR" onclick="armarCondiciones();" />
 	<br>
 
 
-	<table id="tablaCoeficientes"></table>
-	<hr class="percent" />
-	<p>Tipo de Coordenadas en metros</p>
-	<table id="Matriz"></table>
-	</div>
-	<p>Cargas en Coulomb:</p>
-	<div align="center">
-		<table id="tablaDeCargas"></table>
-	</div>
-	<br>
+	
 	<br>
 	<div id="soluciongen"></div>
 	</div>
 	<script src="js/script.js"></script>
+
+
+	<div>
+		<label>Valor de carga </lablel> <label>Cordenas</label>
+	</div>
 </body>
 
 </html>
