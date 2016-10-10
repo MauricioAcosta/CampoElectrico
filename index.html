@@ -13,45 +13,48 @@
 	<h2>Carga de Prueba</h2>
 	<h3>Posicion de la carga de prueba P</h3>
 	<label for="P">X</label>
-	<input type="number" id="X" />
+	<input type="number" id="X"/>
 	<label for="P">Y</label>
 	<input type="number" id="Y" />
 	<label for="P">Z</label>
 	<input type="number" id="Z" />
 
-
-	<h3>Ingrese el numero de cargas:</h3>
-	<input type="text" id="NumCargas" />
-	<p>Seleccione espacio vectorial a trabajar</p>
-
-	<!-- name el mismo nombre me permite agrupar radioButtons -->
-	<input type="radio" name="rg" id="R1" />
-	<label for="R2">R1</label>
 	<br>
+
+<h2>Selecione el espacio vectorial</h2>
+	<!-- name el mismo nombre me permite agrupar radioButtons -->
+	<input type="radio" name="rg" id="R1" checked/>
+	<label for="R2">R1</label >
+
+	<br>
+
 	<input type="radio" name="rg" id="R2" />
 	<label for="R2">R2</label>
+
 	<br>
+
 	<input type="radio" name="rg" id="R3" R3/>
 	<label for="R3">R3</label>
+
 	<br>
-<input type="button" id="AddElement" value="Añadir Carga" onclick="aniadirCarga();">
-<input type="button" id="Calcular" value="Calcular" onclick="calcularCampo();">
+
+<br>
+	<input type="button" id="AddElement" value="Añadir Carga" onclick="aniadirCarga();">
+	<input type="button" id="Calcular" value="Calcular" onclick="calcularCampo();">
 
 
 	<input type="button" id="coeficientes" value="INGRESAR" onclick="armarCondiciones();" />
+
 	<br>
 
-
-	
-	<br>
-	<div id="soluciongen"></div>
-	</div>
 	<script src="js/script.js"></script>
+<br>
 
-
-	<div>
-		<label>Valor de carga </lablel> <label>Cordenas</label>
+	<div id="solucion">
+		<label>Valor de carga </lablel>
+			<label>Cordenas</label>
 	</div>
+
 </body>
 
 </html>

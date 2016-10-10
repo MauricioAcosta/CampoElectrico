@@ -1,4 +1,3 @@
-var NumCargas = null;
 var R = null;
 
 //Carga de Prueba
@@ -9,20 +8,10 @@ var z = null;
 
 function armarCondiciones() {
 
-
-    //Analiza si se ingreso el NumCargas adecuado
-    if (NumCargas === null || NumCargas === 0) {
-        alert("Ingrese Orden");
-        return;
-    }
-
-
     if (document.getElementById("R1").checked) {
         R = 1;
         window.alert("Recuerde cargas en  Coulomb \n y Cordenadas en Metros");
-        //dibujarMatriz(matriz);
         aniadirCarga();
-
 
     } else if (document.getElementById("R2").checked) {
         R = 2;
@@ -72,17 +61,26 @@ function aniadirCarga() {
     //posicion
     var inputX = document.createElement("input");
     inputX.setAttribute("type", "number");
+    inputX.setAttribute("placeholder", "0");
+    inputX.setAttribute("required", "true");
+
     inputX.id = "cargaX" + iCarga;
     d.appendChild(inputX);;
 
     var inputY = document.createElement("input");
     inputY.setAttribute("type", "number");
+    if (R != 2) {
+        inputY.setAttribute("value", "0");
+    }
     inputY.id = "cargaY" + iCarga;
     d.appendChild(inputY);
 
 
     var inputZ = document.createElement("input");
     inputZ.setAttribute("type", "number");
+    if (R != 3) {
+        inputZ.setAttribute("value", "0");
+    }
     inputZ.id = "cargaZ" + iCarga;
     d.appendChild(inputZ);
     document.body.appendChild(d);
@@ -104,8 +102,12 @@ function calcularCampo() {
     var posX = [];
     var posY = [];
     var posZ = [];
+
     var K = 9 * Math.pow(10, 9);
-    var componentes = [[]];
+
+    var componentesX = null;
+    var componentesY = null;
+    var componentesZ = null;
 
     console.log("calculando campo");
     xp = document.getElementById('X').value
@@ -118,24 +120,24 @@ function calcularCampo() {
         posY[i] = document.getElementById("cargaY" + i).value;
         posZ[i] = document.getElementById("cargaZ" + i).value;
 
-        var dx =posX[i] - xp;
-        var dy =posY[i] - yp;
+        var dx = posX[i] - xp;
+        var dy = posY[i] - yp;
         var dz = posZ[i] - zp;
         r[i] = Math.sqrt((Math.pow(dx, 2) + Math.pow(dy, 2) + Math.pow(dz, 2)));
 
-        valorCarga[i] =document.getElementById("cargaV"+i ).value;
-        valorCargaE[i] = document.getElementById("cargaVE"+i).value;
+        valorCarga[i] = document.getElementById("cargaV" + i).value;
+        valorCargaE[i] = document.getElementById("cargaVE" + i).value;
         //var temp = Math.pow(valorCarga[i],valorCargaE[i]);
-        var temp =valorCarga[i]*Math.pow(10,valorCargaE);
+        var temp = valorCarga[i] * Math.pow(10, valorCargaE);
 
-        var aux = (K*temp)/r[i];
+        var aux = (K * temp) / r[i];
 
-        componentes[i][0] = aux*(dx/r[i]);
-        componentes[i][1] = aux*(dy/r[i]);
-        componentes[i][2] = aux*(dz/r[i]);
+        componentesX = componentesX + aux * (dx / r[i]);
+        componentesY = componentesY + aux * (dy / r[i]);
+        componentesZ = componentesZ + aux * (dz / r[i]);
+        //  imprimirResultado(componentes);
 
-
+        console.log(componentesX);
     }
-
 
 }
