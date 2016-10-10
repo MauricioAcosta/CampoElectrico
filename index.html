@@ -1,54 +1,65 @@
 <!DOCTYPE html>
-<html>
 
 <head>
 	<title>campo Electrico</title>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-</head>
+	<link rel="stylesheet" type="text/css" href="css/style.css" /> </head>
 
 <body>
-	<div class="center">
-		<h3><b>Campos Electricos</b></h3>
-		<th>
-			<label for="P">CARGA DE PRUEBA</label>
-			<br> Posicion de la carga de prueba P</br>
-			<label for="P">X</label>
-			<input type="text" id="X" />
-			<label for="P">Y</label>
-			<input type="text" id="Y" />
-			<label for="P">Z</label>
-			<input type="text" id="Z" />
-		</th>
-		<br>
-		<p>Ingrese el numero de cargas:</p>
-		<input type="text" id="NumCargas"  />
-		<br>
-		<br>
-		<input type="text" id="R"  />
-		<br>
-		<br>
-		<input type="button" name="coeficientes" id="coeficientes" value="INGRESAR" onclick="armarCondiciones();" />
-		<br>
-		<br>
-		<div align="center">
-			<table id="tablaCoeficientes"></table>
-			<hr class="percent" />
-			<p>Tipo de Coordenadas en metros</p>
-			<table id="Matriz"></table>
-		</div>
-		<p>Cargas en Coulomb:</p>
-		<div align="center">
-			<table id="tablaDeCargas">
-			</table>
-		</div>
-		<br>
-		<input type="button" name="solucion" id="solucion" value="CALCULAR SOLUCION" onclick=" capturar()" />
-		<br>
-		<br>
-		<div id="soluciongen"></div>
-	</div>
+	<header>
+		<h5>
+			Marìa Alejandra Gòmez Cod:20151015051 Diego Alejandro Hernandez Cod : 20141020271 Andres Acosta Cod. 20142020111 Cristhian Andrés Moreno Cod: 20141020082
+		</h5>
+		<h4>Grupo 5 -- Universidad Distrital Francisco Jose de Caldas</h4>
+
+	</header>
+	<h1>
+		<b>Campos Electricos</b>
+	</h1>
+	<h2>Carga de Prueba</h2>
+	<h3>Posicion de la carga de prueba P</h3>
+	<label for="P">X</label>
+	<input type="number" id="X" />
+	<label for="P">Y</label>
+	<input type="number" id="Y" />
+	<label for="P">Z</label>
+	<input type="number" id="Z" />
+
+	<br>
+
+	<h2>Selecione el espacio vectorial</h2>
+	<!-- name el mismo nombre me permite agrupar radioButtons -->
+	<input type="radio" name="rg" id="R1" onclick="Rs();" checked/>
+	<label for="R2">R1</label>
+
+	<br>
+
+	<input type="radio" name="rg" id="R2" onclick="Rs();" />
+	<label for="R2">R2</label>
+
+	<br>
+
+	<input type="radio" name="rg" id="R3" onclick="Rs();" />
+	<label for="R3">R3</label>
+
+	<br>
+
+	<br>
+	<input type="button" id="AddElement" value="Añadir Carga" onclick="aniadirCarga();">
+	<input type="button" id="Calcular" value="Calcular" onclick="calcularCampo();">
+
+	<br>
+
 	<script src="js/script.js"></script>
+	<br>
+
+	<div id="solucion">
+		<label>Valor de carga </lablel>
+			<label>Cordenas</label>
+	</div>
+
+	<br>
+
 </body>
 
 </html>

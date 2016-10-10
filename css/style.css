@@ -1,39 +1,27 @@
+* {
+    margin: 0px;
+}
+
 body {
-	text-align: center;
-	background-color:#CCFF99;
-	margin:0 auto;
-}
-.left {
-    float: left;
-    width: 50%;
+    text-align: center;
+    background-color: #71b1b5;
 }
 
-.right {
-    float: right;
-    width: 50%;
+header {
+    padding: 15px;
+    background-color: #000000;
+    border: 0px;
+    color: #ffffff;
+    margin: 0px;
+    box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10ex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
 }
 
-.boton-central {
-    display: block;
-    margin: 0 auto;
-    width: 50%;
-}
-
-.percent {
-    width: 90%;
-}
-
-.formulario {
-    padding: 10px;
-    background-color: #eee;
-    width: 100px;
-}
-
-.panel {}
-
-#container {}
-
-.center {
-    width: auto;
-    margin: 0px auto;
+body>* {
+    padding: 10px 5px;
 }
