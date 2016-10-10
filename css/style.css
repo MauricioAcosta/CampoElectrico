@@ -1,4 +1,27 @@
+* {
+    margin: 0px;
+}
+
 body {
-	text-align: center;
-	background-color:  rgb(113, 177, 181);
+    text-align: center;
+    background-color: #71b1b5;
+}
+
+header {
+    padding: 15px;
+    background-color: #000000;
+    border: 0px;
+    color: #ffffff;
+    margin: 0px;
+    box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10ex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+body>* {
+    padding: 10px 5px;
 }
